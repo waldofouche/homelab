@@ -1,0 +1,17 @@
+---
+version: '3'
+
+services:
+  overseerr:
+    image: sctx/overseerr:latest
+    container_name: overseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Australia/Brisbane
+      - PORT=5055 #optional
+    ports:
+      - 5055:5055
+    volumes:
+      # TODO: Replace the app mappings to the linux/windows host
+      - /path/to/appdata/config:/app/config
+    restart: unless-stopped
