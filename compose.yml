@@ -105,3 +105,66 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
+
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+# TODO: Enable once hosted correctly
+#    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./.compose/homeassistant/config:/config
+    ports:
+      - 8123:8123 #optional
+#    devices:
+#      - ./.compose/homeassistant/device/:/path/to/device #optional
+    restart: unless-stopped
+
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:latest
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./.compose/heimdall/config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./.compose/bazarr/config:/config
+      - ./.compose/plex/movies:/movies #optional
+      - ./.compose/plex/tvseries:/tv #optional
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+
+  # https://github.com/meisnate12/Plex-Meta-Manager
+  plex-meta-manager:
+    image: lscr.io/linuxserver/plex-meta-manager:latest
+    container_name: plex-meta-manager
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - PMM_CONFIG=/config/config.yml #optional
+      - PMM_TIME=03:00 #optional
+      - PMM_RUN=False #optional
+      - PMM_TEST=False #optional
+      - PMM_NO_MISSING=False #optional
+    volumes:
+      - ./.compose/plex-meta-manager/config:/config
+    restart: unless-stopped
