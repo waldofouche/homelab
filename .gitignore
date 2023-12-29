@@ -6,4 +6,4 @@
 /.compose/tautulli/config/*
 /.compose/qbittorent/config/*
 /.compose/homeassistant/config/*
-/.compose/homeassistant/device/*
+/.compose/heimdall/config/*
