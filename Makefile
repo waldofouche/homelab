@@ -6,6 +6,7 @@ up:
 	@echo "Overseer is accessible via: http://localhost:5055"
 	@echo "Prowlarr is accessible via: http://localhost:9696"
 	@echo "Radarr is accessible via: http://localhost:7878"
+	@echo "Sonarr is accessible via: http://localhost:8989"
 
 
 ## Teardown app and supporting services

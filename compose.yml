@@ -60,3 +60,18 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./sonarr/config:/config
+      - ./plex/tvseries:/tv #optional
+      - ./shared/downloads:/downloads #optional
+    ports:
+      - 8989:8989
+    restart: unless-stopped
