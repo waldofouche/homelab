@@ -7,3 +7,4 @@
 /.compose/qbittorent/config/*
 /.compose/homeassistant/config/*
 /.compose/heimdall/config/*
+/.compose/bazarr/config/*
