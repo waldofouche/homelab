@@ -7,6 +7,7 @@ up:
 	@echo "Prowlarr is accessible via: http://localhost:9696"
 	@echo "Radarr is accessible via: http://localhost:7878"
 	@echo "Sonarr is accessible via: http://localhost:8989"
+	@echo "Tautulli is accessible via: http://localhost:8181"
 
 
 ## Teardown app and supporting services

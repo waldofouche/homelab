@@ -39,7 +39,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Australia/Brisbane
     volumes:
       - ./prowlerr/config:/config
     ports:
@@ -52,7 +52,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Australia/Brisbane
     volumes:
       - ./radarr/config:/config
       - ./plex/movies:/movies #optional
@@ -67,11 +67,24 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=Australia/Brisbane
     volumes:
       - ./sonarr/config:/config
       - ./plex/tvseries:/tv #optional
       - ./shared/downloads:/downloads #optional
     ports:
       - 8989:8989
+    restart: unless-stopped
+
+  tautulli:
+    image: lscr.io/linuxserver/tautulli:latest
+    container_name: tautulli
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Brisbane
+    volumes:
+      - ./tautulli/config:/config
+    ports:
+      - 8181:8181
     restart: unless-stopped
