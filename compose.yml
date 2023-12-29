@@ -14,9 +14,9 @@ services:
       - PLEX_CLAIM= #optional
     volumes:
       # TODO: Replace the app mappings to the linux/windows host
-      - /path/to/library:/config
-      - /path/to/tvseries:/tv
-      - /path/to/movies:/movies
+      - ./plex/library:/config
+      - ./plex/tvseries:/tv
+      - ./plex/movies:/movies
     restart: unless-stopped
   overseerr:
     image: sctx/overseerr:latest
@@ -29,5 +29,5 @@ services:
       - 5055:5055
     volumes:
       # TODO: Replace the app mappings to the linux/windows host
-      - /path/to/appdata/config:/app/config
+      - ./overseerr/config:/app/config
     restart: unless-stopped
