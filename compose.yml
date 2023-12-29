@@ -14,9 +14,9 @@ services:
       - PLEX_CLAIM= #optional
     volumes:
       # TODO: Replace the app mappings to the linux/windows host
-      - ./plex/library:/config
-      - ./plex/tvseries:/tv
-      - ./plex/movies:/movies
+      - ./.compose/plex/library:/config
+      - ./.compose/plex/tvseries:/tv
+      - ./.compose/plex/movies:/movies
     restart: unless-stopped
 
   overseerr:
@@ -30,7 +30,7 @@ services:
       - 5055:5055
     volumes:
       # TODO: Replace the app mappings to the linux/windows host
-      - ./overseerr/config:/app/config
+      - ./.compose/overseerr/config:/app/config
     restart: unless-stopped
 
   prowlarr:
@@ -41,7 +41,7 @@ services:
       - PGID=1000
       - TZ=Australia/Brisbane
     volumes:
-      - ./prowlerr/config:/config
+      - ./.compose/prowlerr/config:/config
     ports:
       - 9696:9696
     restart: unless-stopped
@@ -54,9 +54,9 @@ services:
       - PGID=1000
       - TZ=Australia/Brisbane
     volumes:
-      - ./radarr/config:/config
-      - ./plex/movies:/movies #optional
-      - ./shared/downloads:/downloads #optional
+      - ./.compose/radarr/config:/config
+      - ./.compose/plex/movies:/movies #optional
+      - ./.compose/shared/downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -69,9 +69,9 @@ services:
       - PGID=1000
       - TZ=Australia/Brisbane
     volumes:
-      - ./sonarr/config:/config
-      - ./plex/tvseries:/tv #optional
-      - ./shared/downloads:/downloads #optional
+      - ./.compose/sonarr/config:/config
+      - ./.compose/plex/tvseries:/tv #optional
+      - ./.compose/shared/downloads:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -84,7 +84,7 @@ services:
       - PGID=1000
       - TZ=Australia/Brisbane
     volumes:
-      - ./tautulli/config:/config
+      - ./.compose/tautulli/config:/config
     ports:
       - 8181:8181
     restart: unless-stopped
@@ -98,8 +98,8 @@ services:
       - TZ=Australia/Brisbane
       - WEBUI_PORT=8080
     volumes:
-      - ./qbittorent/config:/config
-      - ./shared/downloads:/downloads
+      - ./.compose/qbittorent/config:/config
+      - ./.compose/shared/downloads:/downloads
     ports:
       - 8080:8080
       - 6881:6881

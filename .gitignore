@@ -1,7 +1,7 @@
-/overseerr/config/*
-/plex/library/*
-/prowlerr/config/*
-/radarr/config/*
-/sonarr/config/*
-/tautulli/config/*
-/qbittorent/config/*
+/.compose/overseerr/config/*
+/.compose/plex/library/*
+/.compose/prowlerr/config/*
+/.compose/radarr/config/*
+/.compose/sonarr/config/*
+/.compose/tautulli/config/*
+/.compose/qbittorent/config/*
