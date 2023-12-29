@@ -105,3 +105,20 @@ services:
       - 6881:6881
       - 6881:6881/udp
     restart: unless-stopped
+
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+# TODO: Enable once hosted correctly
+#    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - ./.compose/homeassistant/config:/config
+    ports:
+      - 8123:8123 #optional
+#    devices:
+#      - ./.compose/homeassistant/device/:/path/to/device #optional
+    restart: unless-stopped

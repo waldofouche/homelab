@@ -9,6 +9,7 @@ up:
 	@echo "Sonarr is accessible via: http://localhost:8989"
 	@echo "Tautulli is accessible via: http://localhost:8181"
 	@echo "qBittorent is accessible via: http://localhost:8080"
+	@echo "HomeAssistant is accessible via: http://localhost:8123"
 
 ## Teardown app and supporting services
 ## (--remove-orphans stops all services regardless of which compose files were specified at startup)
