@@ -8,3 +8,4 @@
 /.compose/homeassistant/config/*
 /.compose/heimdall/config/*
 /.compose/bazarr/config/*
+/.compose/plex-meta-manager/config/*
