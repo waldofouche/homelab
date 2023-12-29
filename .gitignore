@@ -1,2 +1,7 @@
 /overseerr/config/*
 /plex/library/*
+/prowlerr/config/*
+/radarr/config/*
+/sonarr/config/*
+/tautulli/config/*
+/qbittorent/config/*
