@@ -2,6 +2,22 @@
 version: '3'
 
 services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Australia/Brisbane
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      # TODO: Replace the app mappings to the linux/windows host
+      - /path/to/library:/config
+      - /path/to/tvseries:/tv
+      - /path/to/movies:/movies
+    restart: unless-stopped
   overseerr:
     image: sctx/overseerr:latest
     container_name: overseerr
