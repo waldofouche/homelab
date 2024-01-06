@@ -22,3 +22,7 @@ pve login: _
 ```
 
 9. Login with username: `root` and password as configured during install
+
+## Setup Terraform
+
+Follow the steps here: https://registry.terraform.io/providers/Telmate/proxmox/latest/docs
